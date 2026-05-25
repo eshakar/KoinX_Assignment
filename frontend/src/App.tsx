@@ -49,11 +49,6 @@ function App() {
   const [sortField, setSortField] = useState<string>('');
   const [sortAsc, setSortAsc] = useState<boolean>(true);
 
-  // Fetch initial data
-  useEffect(() => {
-    fetchHarvestingData();
-  }, []);
-
   const fetchHarvestingData = async () => {
     setLoading(true);
     setError(null);
@@ -79,6 +74,11 @@ function App() {
       setLoading(false);
     }
   };
+
+  // Fetch initial data
+  useEffect(() => {
+    fetchHarvestingData();
+  }, []);
 
   // Toggle selection for a single coin
   const handleSelectCoin = (coinId: string) => {
